@@ -41,15 +41,15 @@ export default {
 	},
 	computed: {
 		getViews: function() {
-			let viewcount = this.info.viewCount;
-			let viewcountStr = this.info.viewCount.toString();
-			let viewcountStrLen = viewcountStr.length;
+			let viewcount = this.info.viewCount
+			let viewcountStr = this.info.viewCount.toString()
+			let viewcountStrLen = viewcountStr.length
 			if (viewcountStrLen < 7) {
-				let roundHundred = Math.ceil(parseInt(viewcount)/100)*100;
-				let alt = parseInt(roundHundred/1000);
+				let roundHundred = Math.ceil(parseInt(viewcount)/100)*100
+				let alt = parseInt(roundHundred/1000)
 				return `Views: ${alt}K+`
 			} else if (viewcountStrLen >= 7) {
-				let milViewCount = viewcountStr.slice(0, -6);
+				let milViewCount = viewcountStr.slice(0, -6)
 				return `Views: ${milViewCount}M+`
 			}
 		},
@@ -61,10 +61,10 @@ export default {
 		},
 		getKeywords: function() {
 			let sorted = this.info.keywords.sort((a, b) => {
-				let keyA = a.length;
-				let keyB = b.length;
+				let keyA = a.length
+				let keyB = b.length
 				return keyA - keyB
-			});
+			})
 			return JSON.stringify(sorted)
 		},
 		keyWordsMoreThan15: function() {
@@ -76,9 +76,9 @@ export default {
 			return keyword.replace(/[^0-9a-z]/gi, "")
 		},
 		showKeywords: function(e) {
-			e.target.classList.add('hide');
-			let keywords = [...e.target.parentNode.children];
-			let keysLen = keywords.length;
+			e.target.classList.add('hide')
+			let keywords = [...e.target.parentNode.children]
+			let keysLen = keywords.length
 			for (let k = 0; k < keysLen; k++) {
 				if (!keywords[k].classList.contains("keywords-more")) {
 					keywords[k].style.display = "flex"

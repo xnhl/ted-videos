@@ -1,8 +1,5 @@
 <template>
 	<div id="navigation-wrapper">
-		<!-- <nuxt-link id="home" to="/">
-			<img id="home-icon" src="/icons/home.svg" alt="home">
-		</nuxt-link> -->
 		<nuxt-link class="navigation-item" to="/" active-class="active">New</nuxt-link>
 		<nuxt-link class="navigation-item" to="/top" active-class="active">Top</nuxt-link>
 		<nuxt-link class="navigation-item" to="/popular" active-class="active">Popular</nuxt-link>
@@ -24,20 +21,20 @@ export default {
 			this.$emit("toggle-theme")
 		},
 		handleScroll: function() {
-			let y = window.scrollY;
-			this.scroll_new = y;
-			let nav_wrapper = document.getElementById("navigation-wrapper");
+			let y = window.scrollY
+			this.scroll_new = y
+			let nav_wrapper = document.getElementById("navigation-wrapper")
 			if (this.scroll_new > this.scroll_old) {
-				nav_wrapper.classList.add("nav-hidden");
+				nav_wrapper.classList.add("nav-hidden")
 				this.scroll_old = y
 			} else if (this.scroll_new < this.scroll_old) {
-				nav_wrapper.classList.remove("nav-hidden");
+				nav_wrapper.classList.remove("nav-hidden")
 				this.scroll_old = y
 			}
 		}
 	},
 	mounted() {
-		window.addEventListener('scroll', this.handleScroll);
+		window.addEventListener('scroll', this.handleScroll)
 	}
 }
 </script>
@@ -65,17 +62,6 @@ export default {
 			box-shadow: var(--theme-boxShadowHover)
 		&.active
 			box-shadow: var(--theme-boxShadow)
-	// #home
-	// 	padding: 0 0.5rem
-	// 	&:hover
-	// 		box-shadow: var(--theme-boxShadowHover)
-	// 	#home-icon
-	// 		height: 1rem
-	// 		width: 1rem
-	// 		padding: 0.5rem
-	// 		filter: var(--theme-icon)
-	// 		box-sizing: content-box
-	// 		transition: $transition
 	#theme
 		position: absolute
 		right: 0
